@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Pitch black canvas with lime accents */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Lime green accent */
+    --primary: 75 100% 55%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 75 100% 55%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 10%;
+    --ring: 75 100% 55%;
+
+    --radius: 0.125rem;
+
+    /* Brand tokens */
+    --lime: 75 100% 55%;
+    --lime-glow: 75 100% 65%;
+
+    /* Square gradients (radial squares + conic) */
+    --gradient-square: 
+      linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(0 0% 4%) 100%);
+    --gradient-grid:
+      linear-gradient(hsl(0 0% 100% / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 100% / 0.04) 1px, transparent 1px);
+    --gradient-spotlight:
+      radial-gradient(60% 50% at 50% 0%, hsl(75 100% 55% / 0.15) 0%, transparent 70%);
+    --gradient-corner:
+      conic-gradient(from 225deg at 100% 0%, hsl(75 100% 55% / 0.25), transparent 25%);
+
+    --shadow-lime: 0 0 0 1px hsl(var(--lime) / 0.4), 0 10px 40px -10px hsl(var(--lime) / 0.4);
+
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 75 100% 55%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-ring: 75 100% 55%;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image: var(--gradient-grid);
+    background-size: 48px 48px;
+  }
+  .bg-spotlight {
+    background-image: var(--gradient-spotlight);
+  }
+  .bg-corner {
+    background-image: var(--gradient-corner);
+  }
+  .shadow-lime {
+    box-shadow: var(--shadow-lime);
+  }
+  .text-lime-brand {
+    color: hsl(var(--lime));
+  }
+  .bg-lime-brand {
+    background-color: hsl(var(--lime));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
